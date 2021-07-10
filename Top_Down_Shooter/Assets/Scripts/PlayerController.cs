@@ -9,6 +9,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float padding = 0.5f;  // restricting the player from reaching the end of the boundary -> HTMLLLLLLLL
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] float projectileSpeed = 10.0f;
+    [SerializeField] float projectileFiringPeriod= 0.1f;
+    [SerializeField] GameObject parent;
+
+    Coroutine firingCoroutine;
+
 
     float xMin,xMax;
     float yMin, yMax;
@@ -26,17 +31,30 @@ public class PlayerController : MonoBehaviour
         Fire();
     }
 
+    IEnumerator FireContinuously() // creating couroutine
+    {   
+        while(true)
+         {
+
+            GameObject bullet = Instantiate(
+                    bulletPrefab,parent.transform.position,
+                    Quaternion.identity) as GameObject; //Q.i -> no rotation
+
+            bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0,projectileSpeed);
+            yield return new WaitForSeconds(projectileFiringPeriod); //wait for this    second before next fire
+        }
+    }
 
     private void Move()
     {   
         var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
-        var newXPos = Mathf.Clamp(transform.position.x + deltaX,xMin,xMax);
+        var newXPos = Mathf.Clamp(parent.transform.position.x + deltaX,xMin,xMax);
 
         var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
-        var newYPos = Mathf.Clamp(transform.position.y + deltaY,yMin,yMax);
+        var newYPos = Mathf.Clamp(parent.transform.position.y + deltaY,yMin,yMax);
 
 
-        transform.position = new Vector2(newXPos,newYPos);
+        parent.transform.position = new Vector2(newXPos,newYPos);
         
     }
 
@@ -44,12 +62,12 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1")) //check input setting to see fire1 des
         {
-            GameObject bullet = Instantiate(
-                bulletPrefab,transform.position,
-                Quaternion.identity) as GameObject; //Q.i -> no rotation
+            firingCoroutine = StartCoroutine(FireContinuously());  // calling the couroutine every time fire is pressed
 
-            bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0,projectileSpeed);
-
+        }
+        if(Input.GetButtonUp("Fire1"))
+        {
+            StopCoroutine(firingCoroutine); // stoping the firing we we buttonUP the key
         }
     }
 
