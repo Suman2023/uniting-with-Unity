@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] float bulletSpeed;
     [SerializeField] GameObject bulletPrefab;
-    [SerializeField] float bulletWaitTime = 0.2f;
+    [SerializeField] float bulletWaitTime = 0.5f;
     [SerializeField] GameObject parent;
 
     Coroutine firing;
