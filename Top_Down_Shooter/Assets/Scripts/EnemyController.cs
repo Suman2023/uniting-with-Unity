@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] float bulletWaitTime = 0.5f;
     [SerializeField] GameObject parent;
+    [SerializeField] float health = 100;
 
     Coroutine firing;
     // Start is called before the first frame update
@@ -23,6 +24,18 @@ public class EnemyController : MonoBehaviour
         
     }
 
+     private void OnTriggerEnter2D(Collider2D other) { // To decrese health
+        if(other.gameObject.tag == "playerBullet")
+        {   Destroy(other);
+            DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+            health -= damageDealer.GetDamage();
+            if(health <= 0)
+            {   
+                    Debug.Log(parent.transform.Find("1 Bullet Enemy").GetComponent<SpriteRenderer>().color);
+            }
+                
+        }
+     }
 
     IEnumerator fire2Bullets()
     {
