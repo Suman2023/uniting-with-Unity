@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 790174241981536672}
   - component: {fileID: 790174241981536673}
   - component: {fileID: 790174241981536703}
+  - component: {fileID: 1684332379822954106}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -95,12 +96,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce01710031f2494a8c31d1e13f11924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 790174242320945909}
   moveSpeed: 10
   padding: 0.5
+  health: 100
   bulletPrefab: {fileID: 6800200882123761849, guid: 12b78fe35d13d8b468e56256d1ee13d8, type: 3}
   projectileSpeed: 10
   projectileFiringPeriod: 0.1
-  parent: {fileID: 790174242320945909}
+--- !u!68 &1684332379822954106
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790174241981536674}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.105220184, y: -0.3682809}
+  - {x: 0.1051822, y: -0.3588786}
+  - {x: 0.10480121, y: -0.26457405}
+  - {x: 0.08404944, y: -0.27907562}
+  - {x: -0.07425832, y: -0.2799282}
+  - {x: -0.10138343, y: -0.2613554}
+  - {x: -0.10256487, y: -0.3654747}
+  - {x: -0.14774778, y: -0.3664174}
+  - {x: -0.42600778, y: -0.03693819}
+  - {x: -0.32091203, y: 0.31901932}
+  - {x: -0.29424644, y: 0.30871916}
+  - {x: -0.2487216, y: 0.36412096}
+  - {x: -0.15256177, y: 0.36299706}
+  - {x: -0.09956708, y: 0.3082204}
+  - {x: -0.09337896, y: 0.36657572}
+  - {x: 0.08719602, y: 0.36851978}
+  - {x: 0.11874707, y: 0.3090396}
+  - {x: 0.16060698, y: 0.3623228}
+  - {x: 0.25178507, y: 0.36733103}
+  - {x: 0.30305278, y: 0.31380653}
+  - {x: 0.3386552, y: 0.31279993}
+  - {x: 0.44151264, y: -0.03698206}
+  - {x: 0.15455027, y: -0.36732578}
+  - {x: 0.10642367, y: -0.3663802}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &790174242320945909
 GameObject:
   m_ObjectHideFlags: 0

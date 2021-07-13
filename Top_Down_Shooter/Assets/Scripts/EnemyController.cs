@@ -5,10 +5,15 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
 
-    [SerializeField] float bulletSpeed;
+    
     [SerializeField] GameObject bulletPrefab;
-    [SerializeField] float bulletWaitTime = 0.5f;
     [SerializeField] GameObject parent;
+    [SerializeField] float bulletSpeed;
+    [SerializeField] float bulletWaitTime = 0.0f;
+    [SerializeField] float minWaitTime = 0.3f;
+    [SerializeField] float maxWaitTime = 3.0f;
+
+    
     [SerializeField] float health = 100;
 
     Coroutine firing;
@@ -23,25 +28,39 @@ public class EnemyController : MonoBehaviour
     {
         
     }
+    private void Fire()
+    {   
+        if(gameObject.name == "2 Bullet Enemy")
+            StartCoroutine(fire2Bullets());
+        else
+            StartCoroutine(fire1Bullet());
 
-     private void OnTriggerEnter2D(Collider2D other) { // To decrese health
-        if(other.gameObject.tag == "playerBullet")
-        {   Destroy(other);
-            DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
-            health -= damageDealer.GetDamage();
-            if(health <= 0)
-            {   
-                    Debug.Log(parent.transform.Find("1 Bullet Enemy").GetComponent<SpriteRenderer>().color);
-            }
-                
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    { // To decrese health
+        ProcessHit(other);
+    }
+    
+    private void ProcessHit(Collider2D other)
+    {
+         
+        DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+        health -= damageDealer.GetDamage();
+        damageDealer.Hit();
+        if(health <= 0)
+        {   
+            Destroy(parent);
         }
-     }
+                
+        
+    }
 
     IEnumerator fire2Bullets()
     {
         while(true)
         {
-        yield return new WaitForSeconds(bulletWaitTime);
+        
         GameObject rightBullet = Instantiate(
             bulletPrefab, parent.transform.position + new Vector3(0.38f,0,0), Quaternion.identity
             ) as GameObject;
@@ -55,6 +74,8 @@ public class EnemyController : MonoBehaviour
 
         leftBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0,-bulletSpeed);
 
+        bulletWaitTime = Random.Range(minWaitTime,maxWaitTime);
+        yield return new WaitForSeconds(bulletWaitTime);
         
         }
     }
@@ -62,23 +83,18 @@ public class EnemyController : MonoBehaviour
     {
         while(true)
         {
-        yield return new WaitForSeconds(bulletWaitTime);
+        
         GameObject Bullet = Instantiate(
             bulletPrefab, parent.transform.position, Quaternion.identity
             ) as GameObject;
 
         Bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0,-bulletSpeed);
 
+        bulletWaitTime = Random.Range(minWaitTime,maxWaitTime);
+        yield return new WaitForSeconds(bulletWaitTime);
         
         }
     }
 
-    private void Fire()
-    {   
-        if(gameObject.name == "2 Bullet Enemy")
-            StartCoroutine(fire2Bullets());
-        else
-            StartCoroutine(fire1Bullet());
-
-    }
+    
 }

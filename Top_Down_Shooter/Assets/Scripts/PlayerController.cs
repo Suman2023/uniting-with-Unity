@@ -5,12 +5,22 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //config
+    [Header("Parent")]
+    [SerializeField] GameObject parent;
+
+    [Header("Player")]
     [SerializeField] float moveSpeed = 10.0f;
     [SerializeField] float padding = 0.5f;  // restricting the player from reaching the end of the boundary -> HTMLLLLLLLL
+    [SerializeField] int health;
+
+
+    [Header("Projectile")]
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] float projectileSpeed = 10.0f;
     [SerializeField] float projectileFiringPeriod= 0.1f;
-    [SerializeField] GameObject parent;
+
+    
+    
 
     Coroutine firingCoroutine;
 
@@ -29,6 +39,16 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Fire();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        DamageDealer damageDealer = other.GetComponent<DamageDealer>();
+    
+        health -= damageDealer.GetDamage();
+        damageDealer.Hit();
+        if(health <= 0)
+            Destroy(parent);
+        
     }
 
     IEnumerator FireContinuously() // creating couroutine
@@ -80,5 +100,5 @@ public class PlayerController : MonoBehaviour
 
         yMin = gameCamera.ViewportToWorldPoint(new Vector3(0,0,0)).y + padding;
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0,1,0)).y - padding;
-    }
+    }   
 }
