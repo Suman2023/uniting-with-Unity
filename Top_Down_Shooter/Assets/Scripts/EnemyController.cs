@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] GameObject parent;
+    [SerializeField] GameObject explosionPrefab;
     [SerializeField] float bulletSpeed;
     [SerializeField] float bulletWaitTime = 0.0f;
     [SerializeField] float minWaitTime = 0.3f;
@@ -39,17 +40,19 @@ public class EnemyController : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     { // To decrese health
-        ProcessHit(other);
+        DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+        if(!damageDealer)
+            return;
+        ProcessHit(damageDealer);
     }
     
-    private void ProcessHit(Collider2D other)
+    private void ProcessHit(DamageDealer damageDealer)
     {
-         
-        DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
         health -= damageDealer.GetDamage();
         damageDealer.Hit();
         if(health <= 0)
         {   
+            Instantiate(explosionPrefab,transform.position,Quaternion.identity);
             Destroy(parent);
         }
                 

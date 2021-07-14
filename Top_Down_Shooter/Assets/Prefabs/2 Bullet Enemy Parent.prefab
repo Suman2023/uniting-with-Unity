@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3116742717202892579, guid: f7b20280047358c4fbe26aadecba0128, type: 3}
   parent: {fileID: 2939388344020281266}
+  explosionPrefab: {fileID: 7174684720820830802, guid: 88af8338196904042bf4e817d2f55682, type: 3}
   bulletSpeed: 20
   bulletWaitTime: 0
   minWaitTime: 0.3

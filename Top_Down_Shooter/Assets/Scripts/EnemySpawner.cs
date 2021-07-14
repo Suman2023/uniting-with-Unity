@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator SpawnAllWaves()
     {
         for(int waveIndex = startingWave; waveIndex < waveConfigs.Count; ++waveIndex)
-        {   Debug.Log(waveIndex);
+        {
             var currWave = waveConfigs[waveIndex];
             yield return StartCoroutine(SpawnAllEnemiesInWave(currWave));
         }
