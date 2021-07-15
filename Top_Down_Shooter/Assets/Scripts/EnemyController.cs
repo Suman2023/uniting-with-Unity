@@ -14,6 +14,12 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float minWaitTime = 0.3f;
     [SerializeField] float maxWaitTime = 3.0f;
 
+    [Header("Audio")]
+    [SerializeField] AudioClip deathSFX;
+    [SerializeField] [Range(0,1)]  float deathSoundVolume = 0.75f;
+
+    [SerializeField] AudioClip projectileSFX;
+    [SerializeField] [Range(0,1)] float projectileSoundVolume;
     
     [SerializeField] float health = 100;
 
@@ -54,6 +60,7 @@ public class EnemyController : MonoBehaviour
         {   
             Instantiate(explosionPrefab,transform.position,Quaternion.identity);
             Destroy(parent);
+            AudioSource.PlayClipAtPoint(deathSFX,Camera.main.transform.position, deathSoundVolume);
         }
                 
         
@@ -77,6 +84,8 @@ public class EnemyController : MonoBehaviour
 
         leftBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0,-bulletSpeed);
 
+        AudioSource.PlayClipAtPoint(projectileSFX,Camera.main.transform.position, projectileSoundVolume);
+
         bulletWaitTime = Random.Range(minWaitTime,maxWaitTime);
         yield return new WaitForSeconds(bulletWaitTime);
         
@@ -92,6 +101,7 @@ public class EnemyController : MonoBehaviour
             ) as GameObject;
 
         Bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0,-bulletSpeed);
+        // AudioSource.PlayClipAtPoint(projectileSFX,Camera.main.transform.position, projectileSoundVolume);
 
         bulletWaitTime = Random.Range(minWaitTime,maxWaitTime);
         yield return new WaitForSeconds(bulletWaitTime);

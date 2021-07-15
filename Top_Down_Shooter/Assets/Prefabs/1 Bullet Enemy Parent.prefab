@@ -147,6 +147,10 @@ MonoBehaviour:
   bulletWaitTime: 0
   minWaitTime: 0.3
   maxWaitTime: 2
+  deathSFX: {fileID: 8300000, guid: e3dbeccde3022be4a8dbb6841dffec7e, type: 3}
+  deathSoundVolume: 0.75
+  projectileSFX: {fileID: 8300000, guid: 41b432f6888ce1b4a929d4b8d4305e99, type: 3}
+  projectileSoundVolume: 0.2
   health: 100
 --- !u!68 &1771119437
 EdgeCollider2D:
