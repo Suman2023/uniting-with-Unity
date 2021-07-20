@@ -41,10 +41,12 @@ GameObject:
   - component: {fileID: 2578318155405045175}
   - component: {fileID: 2578318155405045168}
   - component: {fileID: 2578318155405045174}
-  - component: {fileID: 3231505031428891685}
+  - component: {fileID: 6281884569531635319}
+  - component: {fileID: 3045955729001363304}
+  - component: {fileID: -3464314164256736653}
   m_Layer: 0
   m_Name: Cactus
-  m_TagString: Untagged
+  m_TagString: Defender
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,7 +136,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3231505031428891685
+--- !u!70 &6281884569531635319
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2578318155405045173}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.020350695, y: -0.048841774}
+  m_Size: {x: 0.5036254, y: 1.0815841}
+  m_Direction: 0
+--- !u!114 &3045955729001363304
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +161,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 2578318155405045173}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0ab046b929ed894e97dabdd2439253d, type: 3}
+  m_Script: {fileID: 11500000, guid: a24aa6037026a7841a33d4f6a9c095f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+--- !u!114 &-3464314164256736653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2578318155405045173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98aca54abc5576f488a0bd975c9b9e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   axePrefab: {fileID: 4512023977693137901, guid: ff17f8fee8e171f4eab92b1ce08edfea, type: 3}

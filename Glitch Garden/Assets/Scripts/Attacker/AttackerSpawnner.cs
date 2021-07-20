@@ -30,8 +30,6 @@ public class AttackerSpawnner : MonoBehaviour
         {
 
             waitTimeBeforNextSpawn = Random.Range(1.0f, 1.2f);
-            // //Think about this before watching the video
-            // Debug.Log(originPoints[1].transform.position);
             yield return new WaitForSeconds(waitTimeBeforNextSpawn);
             Attackers();
         }
