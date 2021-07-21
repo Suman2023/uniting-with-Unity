@@ -38,11 +38,12 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Attacker\Attacker.cs" />
      <Compile Include="Assets\Scripts\SceneLoader.cs" />
+     <Compile Include="Assets\Scripts\Defender\Defender.cs" />
      <Compile Include="Assets\Scripts\Defender\Projectile.cs" />
+     <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\Attacker\DestroyAttacker.cs" />
      <Compile Include="Assets\Scripts\Attacker\AttackerSpawnner.cs" />
-     <Compile Include="Assets\Scripts\Health.cs" />
-     <Compile Include="Assets\Scripts\Defender\Defender.cs" />
+     <Compile Include="Assets\Scripts\Defender\DefenderSpawner.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

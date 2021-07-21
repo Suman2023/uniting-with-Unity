@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2101236513
+--- !u!1 &806504029437055995
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,7 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2101236514}
+  - component: {fileID: 806504029437055994}
+  m_Layer: 0
+  m_Name: Cactus Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &806504029437055994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806504029437055995}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 806504030274061603}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2627418842530466718
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5195352741216612917}
   m_Layer: 0
   m_Name: AxePosition
   m_TagString: Untagged
@@ -16,21 +47,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2101236514
+--- !u!4 &5195352741216612917
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2101236513}
+  m_GameObject: {fileID: 2627418842530466718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.565, y: 0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2578318155405045175}
+  m_Father: {fileID: 806504030274061603}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2578318155405045173
+--- !u!1 &4991335997662039027
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38,12 +69,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2578318155405045175}
-  - component: {fileID: 2578318155405045168}
-  - component: {fileID: 2578318155405045174}
-  - component: {fileID: 6281884569531635319}
-  - component: {fileID: 3045955729001363304}
-  - component: {fileID: -3464314164256736653}
+  - component: {fileID: 806504030274061603}
+  - component: {fileID: 2335986671090809818}
+  - component: {fileID: 5836900221270644627}
+  - component: {fileID: 1050352202738353952}
+  - component: {fileID: 4232584402194489629}
+  - component: {fileID: 4352351402560853473}
   m_Layer: 0
   m_Name: Cactus
   m_TagString: Defender
@@ -51,28 +82,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2578318155405045175
+--- !u!4 &806504030274061603
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2578318155405045173}
+  m_GameObject: {fileID: 4991335997662039027}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.12, y: 2.57, z: 0}
+  m_LocalPosition: {x: 0, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2101236514}
-  m_Father: {fileID: 0}
+  - {fileID: 5195352741216612917}
+  m_Father: {fileID: 806504029437055994}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2578318155405045168
+--- !u!212 &2335986671090809818
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2578318155405045173}
+  m_GameObject: {fileID: 4991335997662039027}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -117,14 +148,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &2578318155405045174
+--- !u!95 &5836900221270644627
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2578318155405045173}
+  m_GameObject: {fileID: 4991335997662039027}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 6fa699657baba604f9e9b303bc5d3b47, type: 2}
@@ -136,13 +167,13 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!70 &6281884569531635319
+--- !u!70 &1050352202738353952
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2578318155405045173}
+  m_GameObject: {fileID: 4991335997662039027}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -152,30 +183,32 @@ CapsuleCollider2D:
   m_Offset: {x: -0.020350695, y: -0.048841774}
   m_Size: {x: 0.5036254, y: 1.0815841}
   m_Direction: 0
---- !u!114 &3045955729001363304
+--- !u!114 &4232584402194489629
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2578318155405045173}
+  m_GameObject: {fileID: 4991335997662039027}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a24aa6037026a7841a33d4f6a9c095f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
---- !u!114 &-3464314164256736653
+  deathVFX: {fileID: 1406008186841577545, guid: dd8c4479e51979848be91e1b42dc7862, type: 3}
+--- !u!114 &4352351402560853473
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2578318155405045173}
+  m_GameObject: {fileID: 4991335997662039027}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98aca54abc5576f488a0bd975c9b9e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   axePrefab: {fileID: 4512023977693137901, guid: ff17f8fee8e171f4eab92b1ce08edfea, type: 3}
-  axePosObject: {fileID: 2101236513}
+  axePosObject: {fileID: 2627418842530466718}
+  damage: 10
